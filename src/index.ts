@@ -1,0 +1,22 @@
+import LinkedList from './LinkedList';
+
+const list = new LinkedList();
+console.log(`Is Empty: ${list.isEmpty()}`);
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+list.add(5);
+list.add(4);
+list.add(4);
+list.add(4);
+list.add(5);
+console.log(`Linked list: ${list}`);
+console.log(`Contains 2: ${list.has(2)}`);
+list.delete(3);
+console.log(`Linked list: ${list}`);
+console.log(`Contains 3: ${list.has(3)}`);
+list.unique();
+console.log(`Linked list: ${list}`);
+list.clear();
+console.log(`Linked list: ${list}`);
