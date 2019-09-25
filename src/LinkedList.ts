@@ -22,16 +22,6 @@ export default class LinkedList {
     node.next = this.head;
   }
 
-  public unique(): void {
-    const uniqueValues: any[] = [];
-    [...this].forEach((node) => {
-      if (uniqueValues[node.value]) {
-        this.delete(node.value);
-      };
-      uniqueValues[node.value] = true;
-    });
-  }
-
   public delete(value: any): void {
     const prevNode = [...this].find((item) => item.next.value === value);
     if (prevNode) {
@@ -43,6 +33,16 @@ export default class LinkedList {
       }
       prevNode.next = prevNode.next.next;
     }
+  }
+  
+  public unique(): void {
+    const uniqueValues = new Map<any, boolean>();
+    [...this].forEach((node) => {
+      if (uniqueValues.has(node.value)) {
+        this.delete(node.value);
+      }
+      uniqueValues.set(node.value, true);
+    });
   }
 
   public find(value: any): ListNode {
