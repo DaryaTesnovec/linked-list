@@ -35,6 +35,12 @@ export default class LinkedList {
   public delete(value: any): void {
     const prevNode = [...this].find((item) => item.next.value === value);
     if (prevNode) {
+      if ([...this].length === 1) {
+        this.head = null;
+        return;
+      } else if (prevNode.next === this.head) {
+        this.head = this.head.next;
+      }
       prevNode.next = prevNode.next.next;
     }
   }
